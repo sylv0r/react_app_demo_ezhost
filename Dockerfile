@@ -9,6 +9,7 @@ RUN npm run build
 # Production stage
 FROM nginx:stable-alpine as production-stage
 COPY --from=build-stage /app/build /usr/share/nginx/html
+# EXPOSE PORT IS THE PORT TO PLACE WHEN YOU EXPOSE THE APP
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 
